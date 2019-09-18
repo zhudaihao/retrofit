@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    /*网络请求框架retrofit*/
+    api 'com.squareup.retrofit2:retrofit:2.6.1'
+    api 'com.squareup.retrofit2:converter-gson:2.6.1'
+    api 'com.squareup.retrofit2:converter-scalars:2.0.0'
+    //解析框架
+    api 'com.alibaba:fastjson:1.2.59'
+
+    /*RxJava*/
+    implementation 'io.reactivex:rxjava:1.2.9'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    //rxJava对于retrofit的返回Observable适配器
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+
+}
